@@ -1,0 +1,69 @@
+
+Git & GitHub Cheatsheet (Basics)
+
+First-time setup (one-time)
+---------------------------
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global init.defaultBranch main
+
+Start a repo
+------------
+git init
+echo "# My Project" > README.md
+git add .
+git commit -m "Initial commit"
+
+Connect to GitHub
+-----------------
+git branch -M main
+git remote add origin https://github.com/<your-username>/<repo>.git
+git push -u origin main
+
+Daily workflow
+--------------
+git status
+git add <file>            # or: git add .
+git commit -m "Meaningful message"
+git pull --rebase origin main
+git push
+
+Branches
+--------
+git checkout -b feature/login
+# ... edit files ...
+git add . && git commit -m "Add login UI"
+git push -u origin feature/login
+
+Merge via GitHub Pull Request (recommended)
+
+If you must merge locally:
+git checkout main
+git pull --rebase
+git merge feature/login
+git push
+
+Undo/restore
+------------
+git restore <file>           # discard unstaged changes
+git checkout -- <file>       # old syntax
+git reset --hard             # WARNING: discards all local changes
+git log --oneline --graph --decorate --all
+
+Common errors
+-------------
+1) auth failed: use a Personal Access Token (PAT) instead of password.
+2) remote origin already exists:
+   git remote remove origin
+   git remote add origin <url>
+3) src refspec main does not match any:
+   Ensure you committed and created 'main':
+   git branch -M main
+   git push -u origin main
+4) file >100MB reject:
+   Use Git LFS:
+   git lfs install
+   git lfs track "<bigfile>"
+   git add .gitattributes <bigfile>
+   git commit -m "Track big file with LFS"
+   git push
