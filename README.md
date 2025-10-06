@@ -1,10 +1,14 @@
+# NGO Website 🌍
+This project is a simple NGO management and donation platform.
 
-# NGO Project
+## Features
+- Responsive front-end design  
+- About, Blog, Contact, and Donation pages  
+- Built using HTML, CSS, and JavaScript  
 
-Short description: Replace this line with 2–3 sentences describing what this project does and why it exists.
+## Developer
+**Saksham Jain**
 
-## Project Structure (auto-detected)
-```
 ngo/ngo/404.html
 ngo/ngo/about.html
 ngo/ngo/blog.html
